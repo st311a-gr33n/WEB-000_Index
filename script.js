@@ -115,7 +115,7 @@ filters.forEach(filter => filter.addEventListener("click", () => {
 }));
 document.getElementById("aboutLink").addEventListener("click", e => {
   e.preventDefault();
-  const item = {title:"A living index", category:"ST3114-GR33N / ABOUT", type:"ABOUT RECORD", status:"IN PROGRESS", description:"A personal systems archive for conceptual projects, experiments, tools, investigations, and the technical knowledge that connects them. The current prototype uses illustrative calavera marks and placeholder records; replace them with the final project assets and destinations.", action:{label:"GITHUB PROFILE", href:"https://github.com/st311a-gr33n"}};
+  const item = {title:"TZOMPANTLI", category:"ST3114-GR33N / ABOUT", type:"ABOUT RECORD", status:"IN PROGRESS", description:"A personal systems archive for conceptual projects, experiments, tools, investigations, and the technical knowledge that connects them. The current prototype uses illustrative calavera marks and placeholder records; replace them with the final project assets and destinations.", action:{label:"GITHUB PROFILE", href:"https://github.com/st311a-gr33n"}};
   document.getElementById("detailType").textContent = item.type;
   document.getElementById("detailId").textContent = "ST3114-GR33N";
   document.getElementById("detailTitle").textContent = item.title;

@@ -92,9 +92,9 @@
   .log-filter { text-align: left; border: 0; border-left: 1px solid var(--line); padding: 5px 0 5px 9px; background: transparent; color: var(--muted); font-size: 9px; cursor: pointer; }
   .log-filter:hover, .log-filter:focus-visible, .log-filter.active { color: var(--accent); border-left-color: var(--accent); outline: none; }
   .log-note { margin-top: 20px; color: #45414a; font-size: 9px; line-height: 1.7; max-width: 170px; }
-  .footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 14px; color: #514d56; font-size: 0.72rem; letter-spacing: .08em; }
+  .footer { display: flex; justify-content: center; bottom: 24px; gap: 13px; padding-top: 14px; color: #353535; font-size: 0.72rem; letter-spacing: .08em; }
   .footer .accent { color: var(--accent); }
-  .footer a { text-decoration: none; color: #45414a;}
+  .footer a { text-decoration: none; color: #353535;}
   .footer a:hover { color: var(--accent);}
   .detail {
     position: fixed; inset: 0; z-index: 20; display: none; align-items: center; justify-content: center;
@@ -130,6 +130,7 @@
     .territory:nth-child(5) { grid-column: 1 / -1; padding-left: 0; }
     .artifacts { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 250px; }
     .artifact { width: 62px; }
+    .artifact-placeholder { width: 62px; }
     .footer { flex-direction: column; gap: 8px; }
   }
   @media (prefers-reduced-motion: reduce) {
