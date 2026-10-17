@@ -150,10 +150,22 @@
 <div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
   <div class="detail-card">
     <button class="detail-close" id="detailClose" aria-label="Close project record">ESC / CLOSE ×</button>
-    <div class="eyebrow" id="detailType">PROJECT RECORD</div>
-    <div class="detail-id" id="detailId">NULL-001</div>
-    <h2 id="detailTitle">Maya Long Count</h2>
-    <p id="detailDescription">A digital instrument for exploring the arithmetic and temporal structure of the Maya Long Count.</p>
+    <div class="detail-head">
+      <div class="detail-heading">
+        <div class="eyebrow" id="detailType">PROJECT RECORD</div>
+        <div class="detail-id" id="detailId">NULL-001</div>
+        <h2 id="detailTitle">Maya Long Count</h2>
+      </div>
+      <figure class="detail-skull" id="detailSkull">
+        <img id="detailSkullImg" src="./assets/skulls/skull_prototype.svg" alt="">
+      </figure>
+    </div>
+    <p class="detail-lead" id="detailDescription">A digital instrument for exploring the arithmetic and temporal structure of the Maya Long Count.</p>
+    <div class="detail-extended" id="detailExtended"></div>
+    <figure class="detail-image" id="detailImage" hidden>
+      <img id="detailImageImg" alt="">
+      <figcaption id="detailImageCaption"></figcaption>
+    </figure>
     <div class="detail-meta"><span id="detailCategory">NULL / CONCEPTUAL SYSTEMS</span><span id="detailStatus">PROTOTYPE</span><span id="detailAction">PROJECT PAGE / NOT LINKED YET</span></div>
     <!-- <div class="hint">PROTOTYPE NOTE: replace placeholder records and connect each artifact to its destination.</div> -->
   </div>
