@@ -45,7 +45,7 @@ const records = {
     title: "Model Experiments",
     category: "LABS / RESEARCH & EXPERIMENTATION",
     type: "LAB RECORD",
-    status: "PLACEHOLDER",
+    status: "PLANNED",
     description: "Explorations of computational and AI-assisted methods, including hypotheses, test conditions, observed results, and limitations.",
     extended: [
       "Model experiments are treated as investigations rather than demonstrations. Each entry records the hypothesis, the test conditions, the prompt or configuration used, and the observed result, including cases where the output was inconclusive or wrong.",
@@ -62,8 +62,14 @@ const records = {
     status: "IN PROGRESS",
     description: "An Electron-based network analysis application that consolidates scan results into a unified interface. It uses AI to infer the probable funtion of the network device.",
     extended: [
-      "Network Analyzer brings scan output from different tools into one interface. Results are normalized into a consistent view of hosts, ports, and services, reducing the need to reconcile separate terminal sessions and file formats by hand.",
-      "The project also explores assisted interpretation: using AI to suggest the probable role of a device from the evidence collected, while keeping the original scan data visible for verification."
+      "The AI uses information like MAC addresses, IP addresses, open ports, and hardware vendors to infer the probable function of the device on the network.",
+      "Live network discovery through ping-based device checks complements imported scan data, helping users identify devices, interpret network environments, and build a clearer picture of connected infraestructure.",
+      "Core objectives:",
+      "- Consolidate network scan data from multiple sources.",
+      "- Use AI-assisted device fingerprinting to infer probable device roles.",
+      "- Discover responsive devices through live network scans.",
+      "- Present technical findings in a unified, understandable interface.",
+      "- Works with local LLMs"
     ],
     skull: "./assets/skulls/skull_prototype.svg",
     image: null,
@@ -76,11 +82,16 @@ const records = {
     status: "IN PROGRESS",
     description: "An original badge project designed to share personal, professional, or project-related information through QR codes and NFC. It combines a Flipper Zero application with a Raspberry Pi Zero-based implementation.",
     extended: [
-      "Electronic Badge is a compact identity and contact surface built around QR codes and NFC. The goal is a single artifact that can carry personal, professional, or project information and be read by a phone without additional software.",
-      "The implementation pairs a Flipper Zero application with a Raspberry Pi Zero version. Both share the same data model, exploring the trade-offs between a pocket-sized device and a more flexible networked badge."
+      "The Raspberry Pi Zero includes an e-ink display for presenting information in a compact, portable format.",
+      "Building on existing Flipper QR and NFC applications as starting points, the project develops a unified concept for customizable digital identity and contact sharing across multiple implementations.",
+      "Core objectives:",
+      "- Provide a portable and customizable digital identity.",
+      "- Share information through QR codes and NFC.",
+      "- Support comlementary Flipper Zero and Raspberry Pi Zero implementations.",
+      "- Explore low-power, e-ink-based interface for displaying information."
     ],
     skull: "./assets/skulls/skull_prototype.svg",
-    image: null,
+    image: {src: "./assets/projects/product_flipper-zero_badge-full.png", alt: "Flipper Zero Badge App" },
     action: null
   },
   "OPS-003": {
@@ -90,11 +101,17 @@ const records = {
     status: "IN PROGRESS",
     description: "An extension of an existing Flipper Zero AI-agent companion application that enables remote interaction with coding agents running on a computer The project expands the original USB-based workflow with Bluetooth Low Energy connectivity on Linux.",
     extended: [
-      "Agent Buddy extends a Flipper Zero AI-agent companion so a coding agent running on a computer can be reached from a handheld device. The original workflow depended on a USB connection, which limited where and how the agent could be used.",
-      "This version adds Bluetooth Low Energy connectivity on Linux. The work covers pairing, transport reliability, session handling, and the interface changes needed to make a remote agent feel usable from a device with a very small screen."
+      "The project adds support for OpenCode alongside Claude Code, and identifies the active agent or harness.",
+      "Through the Flipper Zero, users can monitor agent progress, review pending actions, approve operations, and send commands without remaining physically connected to the computer.",
+      "Core objectives:",
+      "- Enable wireless agent interaction through BLE on Linux.",
+      "- Support both Claude Code and OpenCode workflows.",
+      "- Identify the active agent and execution harness.",
+      "- Monitor progress, inspect pending actions, and approve operations remotely.",
+      "- Send commands from a handheld device while away from the computer."
     ],
     skull: "./assets/skulls/skull_prototype.svg",
-    image: null,
+    image: {src: "./assets/projects/product_flipper-zero_OpenCode_WB.png", alt: "Flipper Zero OpenCode Buddy"},
     action: { label: "FLIPPER AGENT BUDDY", href: "https://github.com/st311a-gr33n/flipper-claude-buddy" }
   },
   "OPS-004": {
@@ -102,10 +119,14 @@ const records = {
     category: "OPS / TOOLS & OPERATIONAL SYSTEMS",
     type: "SYSTEM RECORD",
     status: "IN PROGRESS",
-    description: "A modification of the Flipper Zero Tamagotchi application that introduces a lock-screen mechanism to prevent accidental button presses during everyday carry. The modification allows the virtual pet to remain active throughout the day whitout unintended inputs.",
+    description: "A modification of the Flipper Zero Tamagotchi application that introduces a lock-screen mechanism to prevent accidental button presses during everyday carry. The modification allows the virtual pet to remain active throughout the day whitout unintended inputs when de device is stored in a pocket or bag.",
     extended: [
-      "Tamagotchi Lock Screen adds a deliberate lock state to the Flipper Zero Tamagotchi application. The virtual pet can stay active through the day without every accidental button press becoming an input.",
-      "The modification focuses on input handling and state transitions: how the lock is entered, what remains visible, and how the pet continues to progress while interaction is suspended. The result is a small quality-of-life change for everyday carry."
+      "Normal interaaction with other Flipper Zero functions remains possible when the user chooses to switch away from the Tamagotchi.",
+      "Core objectives:",
+      "- Prevent accidental button inputs during transport.",
+      "- Keep the virtual pet active during everyday use.",
+      "- Provide deliberate entry into and exit from the locked state.",
+      "- Preserve the ability to use other Flipper Zero functions"
     ],
     skull: "./assets/skulls/skull_prototype.svg",
     image: null,
@@ -118,8 +139,13 @@ const records = {
     status: "PROTOTYPE",
     description: "An AI-agent skill designed to initialize, structure, and maintain Obsidian/Tolaria vaults for individual projects. It establishes and tracks project architecture, implementation plans, unresolved gaps, system components, and development progress, providing persistent contextual memory for AI agents.",
     extended: [
-      "Project Vault Skill initializes and maintains an Obsidian or Tolaria vault for a project. It establishes a consistent structure for architecture, implementation plans, components, unresolved gaps, and progress, so an AI agent has a stable place to read and write context.",
-      "The skill is designed to reduce repeated briefing. Instead of reconstructing a project from conversation history, an agent can open the vault, locate the current state, and continue from a persistent record of decisions and open questions."
+      "By organizing technical knowledge into structured, human-readable Markdown files, the skill creates a shared working environment in which both user and AI agents can understand the project, navigate its documentation, and maintain continuity throughout development.",
+      "Core objectives:",
+      "- Initialize standardized, project-specific Obsidian/Tolaria vaults.",
+      "- Document architecture, components, plans, and implementation decisions.",
+      "- Track unresolved questions, technical gaps, and project progress.",
+      "- Provide persistent context for AI agents across sessions.",
+      "- Keep project knowlede accesible to both user and AI agents."
     ],
     skull: "./assets/skulls/skull_prototype.svg",
     image: null,
@@ -321,12 +347,12 @@ document.getElementById("aboutLink").addEventListener("click", e => {
     category: "ST3114-GR33N / ABOUT",
     type: "ABOUT RECORD",
     status: "IN PROGRESS",
-    description: "A personal systems archive for conceptual projects, experiments, tools, investigations, and the technical knowledge that connects them. The current prototype uses illustrative calavera marks and placeholder records; replace them with the final project assets and destinations.",
+    description: "A personal systems archive for conceptual projects, experiments, tools, investigations, and the technical knowledge that connects them.",
     extended: [
-      "A personal systems archive for conceptual projects, experiments, tools, investigations, and the technical knowledge that connects them. The structure is deliberately small: five territories, a record for each artifact, and a shared vocabulary for status and category.",
+      "The structure is deliberately small: five territories, a record for each artifact, and a shared vocabulary for status and category.",
       "The current prototype uses illustrative calavera marks and placeholder records. Each project will eventually carry its own skull, extended record, and project-specific documentation, replacing the shared prototype assets as the archive grows."
     ],
-    skull: DEFAULT_SKULL,
+    skull: "./assets/ST33114-GR33N_Icon.svg",
     image: null,
     action: { label: "GITHUB PROFILE", href: "https://github.com/st311a-gr33n" }
   };

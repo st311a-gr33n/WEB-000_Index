@@ -106,7 +106,7 @@
   .detail-close:hover, .detail-close:focus-visible { color: var(--accent); }
   .detail-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
   .detail-heading { min-width: 0; }
-  .detail-skull { flex: none; width: clamp(64px, 15vw, 74px); margin: 12px 0 0; pointer-events: none; }
+  .detail-skull { flex: none; width: clamp(64px, 15vw, 70px); margin: 12px 0 0; pointer-events: none; }
   .detail-skull img { width: 100%; height: auto; display: block; }
   .detail-id { color: var(--accent); font-size: 10px; letter-spacing: .14em; margin: 8px 0 18px; }
   .detail-card h2 { font: 400 clamp(24px, 5vw, 38px)/1.1 var(--sans); letter-spacing: -.055em; margin: 0 0 14px; }
