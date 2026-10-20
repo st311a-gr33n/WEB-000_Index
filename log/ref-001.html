@@ -12,7 +12,7 @@
   /* Blog layout — page-scoped; brand tokens come from ../style.css */
   .log-article {
     display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr) 200px;
     gap: clamp(24px, 4vw, 56px);
     align-items: start;
     flex: 1;
@@ -59,6 +59,55 @@
     padding-left: 18px;
     font-size: 10px;
   }
+  .log-related {
+    position: sticky;
+    top: 20px;
+    min-width: 0;
+  }
+  .log-related nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .related-group {
+    margin-top: 10px;
+    border-left: 1px solid var(--line);
+    padding: 5px 0 5px 9px;
+    color: #a5a1ab;
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .related-group:first-child {
+    margin-top: 0;
+  }
+  .related-item {
+    border-left: 1px solid var(--line);
+    padding: 5px 0 5px 9px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  a.related-item:hover, a.related-item:focus-visible {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    outline: none;
+  }
+  .related-item.current {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+  .related-item.tbd {
+    color: #45414a;
+  }
+  .related-item .tag {
+    display: block;
+    margin-top: 2px;
+    color: #353535;
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
   .log-content {
     width: 100%;
     max-width: 720px;
@@ -85,6 +134,9 @@
   }
   .log-meta span:first-child {
     color: var(--accent);
+  }
+  .log-meta .status-published {
+    color: var(--green-progress);
   }
   .log-content h2 {
     margin: 34px 0 10px;
@@ -115,12 +167,13 @@
     margin: 14px 0 0;
   }
   .log-content pre {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
     background: var(--surface-2);
     border: 1px solid var(--line);
     padding: 14px 16px;
     margin: 8px 0 18px;
-    overflow-x: auto;
-    scrollbar-width: thin;
   }
   .log-content code {
     font-family: var(--mono);
@@ -129,8 +182,33 @@
     color: var(--text);
   }
   .log-content pre code {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
     background: none;
     padding: 0;
+  }
+  .copy-btn {
+    flex: none;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    font: 9px/1 var(--mono);
+    letter-spacing: .13em;
+    padding: 5px 8px;
+    margin-top: 1px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .copy-btn:hover, .copy-btn:focus-visible {
+    color: var(--accent);
+    border-color: #4a4054;
+    outline: none;
+  }
+  .copy-btn.copied {
+    color: var(--green-progress);
+    border-color: var(--green-progress);
   }
   .log-content p code, .log-content h3 code {
     color: var(--accent);
@@ -142,10 +220,16 @@
       gap: 24px;
       padding-top: 20px;
     }
-    .log-toc {
+    .log-toc, .log-related {
       position: static;
+    }
+    .log-toc {
       border-bottom: 1px solid var(--line);
       padding-bottom: 18px;
+    }
+    .log-related {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
     }
   }
 </style>
@@ -158,8 +242,7 @@
       <div class="brand">ST3114-GR33N <span>//</span></div>
     </div>
     <nav class="topmeta" aria-label="Main links">
-      <a href="../index.html#index">INDEX</a>
-      <a href="../index.html#about">ABOUT</a>
+      <a href="../index.html">INDEX</a>
     </nav>
   </header>
 
@@ -183,13 +266,13 @@
     </aside>
 
     <article class="log-content">
-      <div class="eyebrow">WEB-000_Index // LOG — REF-001</div>
+      <div class="eyebrow">LOG // REF-001</div>
       <h1>Git: Remotes &amp; Branches</h1>
       <div class="log-meta">
         <span>REF-001</span>
-        <span>LOG / REF — REFERENCES</span>
+        <span>LOG // REF / REFERENCES</span>
         <span>REFERENCE RECORD</span>
-        <span>PLANNED</span>
+        <span class="status-published">PUBLISHED</span>
       </div>
 
       <section id="overview" aria-label="Overview">
@@ -251,6 +334,18 @@ git merge &lt;branch-name&gt;</code></pre>
         <pre><code>git branch -d &lt;branch-name&gt;</code></pre>
       </section>
     </article>
+
+    <aside class="log-related" aria-label="Related log records">
+      <div class="log-toc-label">Log Records</div>
+      <nav>
+        <div class="related-group">REF // References</div>
+        <a class="related-item current" href="./ref-001.html" aria-current="page">Git: Remotes &amp; Branches</a>
+        <div class="related-group">CFG // Configurations</div>
+        <span class="related-item tbd">Linux: Shell Environment<span class="tag">PLANNED</span></span>
+        <div class="related-group">DSP // Dispatches</div>
+        <span class="related-item tbd">AI: Beyond the Hype<span class="tag">PLANNED</span></span>
+      </nav>
+    </aside>
   </main>
 
   <footer class="footer">
@@ -261,5 +356,46 @@ git merge &lt;branch-name&gt;</code></pre>
     <span></span>
   </footer>
 </div>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".log-content pre").forEach(function (pre) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.textContent = "COPY";
+    btn.setAttribute("aria-label", "Copy code snippet");
+    btn.addEventListener("click", function () {
+      var code = pre.querySelector("code");
+      var text = code ? code.textContent : pre.textContent;
+      var ok = function () {
+        btn.textContent = "COPIED";
+        btn.classList.add("copied");
+        window.setTimeout(function () {
+          btn.textContent = "COPY";
+          btn.classList.remove("copied");
+        }, reduceMotion ? 4000 : 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, function () { fallbackCopy(text, ok); });
+      } else {
+        fallbackCopy(text, ok);
+      }
+    });
+    pre.appendChild(btn);
+  });
+  function fallbackCopy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* clipboard unavailable */ }
+    document.body.removeChild(ta);
+  }
+})();
+</script>
 </body>
 </html>
