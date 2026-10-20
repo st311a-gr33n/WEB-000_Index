@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#020202">
+<title>ST3114-GR33N // REF-001</title>
+<link rel="icon" href="../favicon/favicon_dark.svg" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon/favicon_light.svg" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* Blog layout — page-scoped; brand tokens come from ../style.css */
+  .log-article {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+    flex: 1;
+    padding: 28px 0 48px;
+  }
+  .log-toc {
+    position: sticky;
+    top: 20px;
+    min-width: 0;
+  }
+  .log-toc-label {
+    color: #353535;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: .16em;
+    margin-bottom: 12px;
+  }
+  .log-toc nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .log-toc a {
+    border-left: 1px solid var(--line);
+    padding: 5px 0 5px 9px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  .log-toc a:hover, .log-toc a:focus-visible {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    outline: none;
+  }
+  .log-toc a.toc-group {
+    margin-top: 10px;
+    color: #a5a1ab;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: 9px;
+  }
+  .log-toc a.toc-sub {
+    padding-left: 18px;
+    font-size: 10px;
+  }
+  .log-content {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    min-width: 0;
+  }
+  .log-content > .eyebrow {
+    margin-bottom: 12px;
+  }
+  .log-content h1 {
+    font: 400 clamp(26px, 4vw, 38px)/1.1 var(--sans);
+    letter-spacing: -.055em;
+    margin: 0 0 14px;
+  }
+  .log-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding-bottom: 18px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 9px;
+  }
+  .log-meta span:first-child {
+    color: var(--accent);
+  }
+  .log-content h2 {
+    margin: 34px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    color: var(--accent);
+    font: 400 13px/1.3 var(--mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .log-content h3 {
+    margin: 26px 0 8px;
+    color: #f0edf3;
+    font: 400 17px/1.3 var(--sans);
+    letter-spacing: -.03em;
+  }
+  .log-content p {
+    color: #a19ba7;
+    font: 13px/1.8 var(--sans);
+    margin: 0 0 14px;
+    max-width: 68ch;
+  }
+  .code-label {
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    margin: 14px 0 0;
+  }
+  .log-content pre {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    margin: 8px 0 18px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .log-content code {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .log-content pre code {
+    background: none;
+    padding: 0;
+  }
+  .log-content p code, .log-content h3 code {
+    color: var(--accent);
+    font-size: .92em;
+  }
+  @media (max-width: 900px) {
+    .log-article {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      padding-top: 20px;
+    }
+    .log-toc {
+      position: static;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand-wrap">
+      <img class="brand-icon" src="../assets/ST33114-GR33N_Icon.svg" alt="" aria-hidden="true">
+      <div class="brand">ST3114-GR33N <span>//</span></div>
+    </div>
+    <nav class="topmeta" aria-label="Main links">
+      <a href="../index.html#index">INDEX</a>
+      <a href="../index.html#about">ABOUT</a>
+    </nav>
+  </header>
+
+  <main class="log-article">
+    <aside class="log-toc" aria-label="Content navigation">
+      <div class="log-toc-label">Contents</div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a class="toc-group" href="#remotes">Git Remotes</a>
+        <a class="toc-sub" href="#add-remote">Add a remote</a>
+        <a class="toc-sub" href="#change-remote-url">Change a remote URL</a>
+        <a class="toc-sub" href="#list-remotes">List remotes</a>
+        <a class="toc-sub" href="#remove-remote">Remove a remote</a>
+        <a class="toc-group" href="#branches">Git Branches</a>
+        <a class="toc-sub" href="#create-switch">Create &amp; switch</a>
+        <a class="toc-sub" href="#create-only">Create without switching</a>
+        <a class="toc-sub" href="#push-branch">Push to remote</a>
+        <a class="toc-sub" href="#merge">Merge</a>
+        <a class="toc-sub" href="#delete-branch">Delete a branch</a>
+      </nav>
+    </aside>
+
+    <article class="log-content">
+      <div class="eyebrow">WEB-000_Index // LOG — REF-001</div>
+      <h1>Git: Remotes &amp; Branches</h1>
+      <div class="log-meta">
+        <span>REF-001</span>
+        <span>LOG / REF — REFERENCES</span>
+        <span>REFERENCE RECORD</span>
+        <span>PLANNED</span>
+      </div>
+
+      <section id="overview" aria-label="Overview">
+        <p>A practical reference for the two connected parts of everyday Git work: managing remote repositories and operating on branches. Commands are kept in their plain form; each entry states what the operation does and where it belongs in the workflow.</p>
+      </section>
+
+      <section id="remotes" aria-label="Git remotes">
+        <h2>Git Remotes</h2>
+
+        <h3 id="add-remote">Add a remote</h3>
+        <p>Attaches a new remote name to a repository URL. The name is the short handle used by every later fetch, push, and pull against that repository.</p>
+        <div class="code-label">Syntax</div>
+        <pre><code>git remote add &lt;name&gt; &lt;url&gt;</code></pre>
+        <div class="code-label">Example</div>
+        <pre><code>git remote add origin git@github.com:username/repository.git</code></pre>
+
+        <h3 id="change-remote-url">Change a remote URL</h3>
+        <p>Re-points an existing remote name at a new URL — after a repository rename, an account transfer, or a switch between SSH and HTTPS. History and branch configuration stay attached to the name.</p>
+        <div class="code-label">Syntax</div>
+        <pre><code>git remote set-url &lt;remote name&gt; &lt;new-url&gt;</code></pre>
+        <div class="code-label">Example</div>
+        <pre><code>git remote set-url origin git@github.com:username/repository.git</code></pre>
+
+        <h3 id="list-remotes">List remotes</h3>
+        <p>Shows every remote configured for the repository. <code>-v</code> adds the fetch and push URLs, so mismatches between them are visible immediately.</p>
+        <pre><code>git remote -v</code></pre>
+
+        <h3 id="remove-remote">Remove a remote</h3>
+        <p>Detaches a remote name from the repository. Local branches and history are untouched; only the named connection is deleted.</p>
+        <pre><code>git remote remove &lt;name&gt;</code></pre>
+      </section>
+
+      <section id="branches" aria-label="Git branches">
+        <h2>Git Branches</h2>
+
+        <h3 id="create-switch">Create and switch to a new branch</h3>
+        <p>Creates a branch and moves <code>HEAD</code> onto it in one step. <code>git switch -c</code> is the current form; <code>git checkout -b</code> is the older equivalent. Moving to an existing branch uses either command without the flag.</p>
+        <pre><code>git switch -c &lt;new-branch-name&gt;
+# or
+git checkout -b &lt;new-branch-name&gt;
+# switch to existing branch
+git checkout &lt;branch-name&gt;</code></pre>
+
+        <h3 id="create-only">Create a branch without switching</h3>
+        <p>Leaves <code>HEAD</code> where it is and only records the new branch pointer — useful when preparing a branch for later without leaving the current work.</p>
+        <pre><code>git branch &lt;new-branch-name&gt;</code></pre>
+
+        <h3 id="push-branch">Push a branch to remote</h3>
+        <p>Publishes the branch to the remote and sets its upstream with <code>-u</code>, so later <code>git push</code> and <code>git pull</code> on that branch need no arguments.</p>
+        <pre><code>git push -u origin &lt;new-branch-name&gt;</code></pre>
+
+        <h3 id="merge">Merge</h3>
+        <p>Integrates a branch into the branch you are on. Check out the target branch first — <code>main</code> in the usual case — then merge the feature branch into it.</p>
+        <pre><code>git checkout main
+git merge &lt;branch-name&gt;</code></pre>
+
+        <h3 id="delete-branch">Delete a branch</h3>
+        <p>Removes a local branch after its work has been integrated. Deleting keeps the repository list clean; the commits remain reachable through the branch they were merged into.</p>
+        <pre><code>git branch -d &lt;branch-name&gt;</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <span><span class="accent">ST3114-GR33N</span> // WEB</span>
+    <span>PROJECT ID: <a href="https://github.com/st311a-gr33n/WEB-000_Index">WEB-000</a></span>
+    <a href="https://github.com/st311a-gr33n" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    <span>INDEX STATUS: <span class="progress-accent">IN PROGRESS</span></span>
+    <span></span>
+  </footer>
+</div>
+</body>
+</html>

@@ -166,18 +166,18 @@ const records = {
     action: null
   },
   "REF-001": {
-    title: "Git: Recovery Commands",
+    title: "Git: Remotes & Branches",
     category: "LOG / REF — REFERENCES",
     type: "REFERENCE RECORD",
     status: "PLANNED",
-    description: "A fast, practical reference for recovering work, inspecting repository state, undoing mistakes safely, and understanding the consequences of common Git recovery commands.",
+    description: "A fast, practical reference for Git remotes and branches: adding, re-pointing, listing, and removing remotes, plus creating, publishing, merging, and deleting branches.",
     extended: [
-      "A compact reference for recovering work and inspecting repository state in Git. It covers commands for reading history, finding lost commits, undoing changes safely, and understanding what each recovery operation will actually affect.",
-      "The emphasis is on consequences rather than memorized syntax. Each entry explains when a command is appropriate, what it preserves, and what it can discard, so a recovery step can be chosen with a clear expectation of the result."
+      "A compact reference for the two connected surfaces of everyday Git work. It covers remotes — adding one, changing its URL, listing what is configured, and removing it — and branches, from creating and switching through publishing with an upstream, merging, and cleaning up.",
+      "The emphasis is on placement in the workflow rather than memorized syntax. Each entry states what the command does, what it attaches to or detaches, and where it belongs, so a step can be chosen with a clear expectation of the result."
     ],
     skull: "./assets/skulls/skull_prototype.svg",
     image: null,
-    action: null
+    action: { label: "GIT REMOTES & BRANCHES", href: "https://st311a-gr33n.github.io/WEB-000_Index/log/ref-001.html" }
   },
   "CFG-001": {
     title: "Linux: Shell Environment",
