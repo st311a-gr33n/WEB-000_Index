@@ -181,7 +181,7 @@ const records = {
   },
   "CFG-001": {
     title: "Linux: Shell Environment",
-    category: "LOG / CFG — CONFIGURATIONS",
+    category: "LOG // CFG / CONFIGURATIONS",
     type: "CONFIGURATION RECORD",
     status: "PLANNED",
     description: "A documented shell environment: configuration files, dependencies, setup instructions, rationale, and the trade-offs behind the choices.",
@@ -195,7 +195,7 @@ const records = {
   },
   "DSP-001": {
     title: "AI: Beyond the Hype",
-    category: "LOG / DSP — DISPATCHES",
+    category: "LOG // DSP / DISPATCHES",
     type: "DISPATCH RECORD",
     status: "PLANNED",
     description: "An editorial space for technical analysis and opinion: what happened, what the evidence supports, what it might mean, and where interpretation begins.",
