@@ -10,6 +10,7 @@
     --red: #f2b2bd;
     --blue: #83d4e5;
     --green-progress: #c6d68f;
+    --gray-planned: #353535;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -312,6 +313,14 @@
   }
   .record-bottom .status {
     color: var(--accent);
+  }
+  .record-bottom .status.status-planned,
+  .detail-meta .status-planned {
+    color: var(--gray-planned);
+  }
+  .record-bottom .status.status-published,
+  .detail-meta .status-published {
+    color: var(--green-progress);
   }
   .log-subnav {
     margin-top: 4px;

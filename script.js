@@ -209,6 +209,9 @@ const records = {
   }
 };
 const DEFAULT_SKULL = "./assets/skulls/skull_prototype.svg";
+function statusClass(status) {
+  return "status-" + status.toLowerCase().replace(/\s+/g, "-");
+}
 const buttons = [...document.querySelectorAll(".artifact")];
 const record = document.getElementById("record");
 let activeButton = null;
@@ -239,7 +242,9 @@ function showRecord(button) {
   document.getElementById("recordTitle").textContent = item.title;
   document.getElementById("recordDescription").textContent = item.description;
   document.getElementById("recordCategory").textContent = item.category;
-  document.getElementById("recordStatus").textContent = item.status;
+  const recordStatus = document.getElementById("recordStatus");
+  recordStatus.textContent = item.status;
+  recordStatus.className = "status " + statusClass(item.status);
   positionRecord(button);
   record.classList.add("visible");
   record.setAttribute("aria-hidden", "false");
@@ -307,7 +312,9 @@ function renderDetail(item, id) {
     imageCaption.textContent = "";
   }
   document.getElementById("detailCategory").textContent = item.category;
-  document.getElementById("detailStatus").textContent = item.status;
+  const detailStatus = document.getElementById("detailStatus");
+  detailStatus.textContent = item.status;
+  detailStatus.className = statusClass(item.status);
   renderDetailAction(item);
 }
 function showDetail(item, id) {
